@@ -1,5 +1,6 @@
 # Original Description
 
+```
 Begin3
 Title:          NewsFleX
 Version:        1.1.9.5
@@ -34,6 +35,7 @@ Alternate-site: ftp sunsite.unc.edu/pub/linux/system/news/readers/
 Platforms:	LINUX, UNIX
 Copying-policy: GPL
 End
+```
 
 # Old README
 
@@ -50,19 +52,19 @@ Configuration:
 maybe edit the top of the Imakefile for directories, or accept the defaults
 
 To make it:
-xmkmf
-make
+`xmkmf`
+`make`
 
 To install:
-make install
+`make install`
 
 
 You need to copy newsflexuser.tgz to your home directory and do
-tar -kzxvf newsflexuser.tgz in your home dir, this creates the configuration
+`tar -kzxvf newsflexuser.tgz` in your home dir, this creates the configuration
 files.
 
 start the program by typing:
-NewsFleX
+`NewsFleX`
 
 Please read the other files.
 
@@ -75,3 +77,4 @@ you compile.
 # Archivist Notes
 
 * Created bin directory to separate the binary file, NewsFleX-1.1.5.static, from the source code. NewsFleX-1.1.5.static is 32-bit and requires the ability to run 32-bit programs.
+* Fixed formatting
