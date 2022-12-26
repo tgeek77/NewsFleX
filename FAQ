@@ -1,0 +1,254 @@
+_____________________THIS IS THE NewsFleX FAQ_____________________
+
+Q:
+What is NewsFleX?
+A:
+NewsFleX is an off line NNTP news reader for the Xwindow system.
+
+Q:
+For who is this program useful?
+A:
+For anyone who uses a dial up connection and has to pay by the second
+for the phone line.
+
+Q:
+What do I need to  run NewsFleX?
+A:
+Software:
+ mpack / munpack (a base 64 capable encoder / decoder).
+   Mpack/munpack is available via anonymous FTP in 
+   ftp.andrew.cmu.edu/pub/mpack/
+ X11R6 or like that, linux as from 2.0.30.
+ A viewer, like for example xv, to view pictures in binary attachments.
+  Other viewers or applications if you use different attachments.  
+ For encryption using PGP:
+  There is encryption software (free ware) available at:
+  http://www.pgpi.com/
+  or
+  http://www.pgp.com/
+  There is a European and US version, some versions may be legal in only
+  certain parts of the world.
+  NewsFleX was only tested with PGP 50 i (European release).
+Hardware:
+ The binary is for a 486 or higher.
+ At least 12 MBytes RAM and a lot of disc space.
+ Facilities:
+  A connection to the Internet.
+  Access to an NNTP news server.
+
+Q:
+Can NewsFleX be used as a mail client?
+A:
+No, but NewsFleX can reply to an article via email.
+Also NewsFleX can automatically start you mail reader program (like for
+example popclient) when it starts dialing in.
+And NewsFleX can reply to incoming mail in /var/spool/mail/user
+
+Q:
+So NewsFleX can automatically dial my provider?
+A:
+Yes, and automatically hang up, after it has finished.
+Be VERY CAREFUL with the last option, it will also kill a FTP for
+example, so if you have ANY other net program running, do not use this
+option!
+
+Q:
+I have an article with a binary file attached, NewsFleX says: "no helper
+program found' now what?
+A:
+It is saved to disk.
+If the file is for example in news group alt.binary.files, then you will
+find the file in:
+~/.NewsFleX/newsserver/period/alt.binary.files/
+
+Q:
+I have a program with a lot of unreadable stuff, it says amongst other
+things:
+goody.htm
+If I start the viewer, netscape starts (specified in helpers) but I get no
+text and it looks like netscape hangs.
+A:
+This is because the goodies.htm file probably specifies some picture as an
+URL.
+Netscape will try to go online to get it, but if you are off line reading
+the news, netscape may wait a LONG time before it reports an error.
+Check /var/adm/messages to see if netscape tries to make a connection.
+It will look something like:
+ named[43]: ns_forw: sendto([xx.xx.xx.xx.xx): Network is unreachable
+To get things working, you would have to connect to the net.
+Anyways, you will find the decoded goodies.htm in:
+ ~/.NewsFleX/newsserver/period/news_group/
+NewsFleX has an URL list.
+In an article body, if you come across an URL, mark part off the URL by
+pressing the left mouse button and moving the mouse a little.
+Then press the right mouse button.
+You will be asked to enter a comment, so later you will know what this
+URL was all about.
+The URL is then stored in the URL list.
+Once you have read all articles, and moved the URL's you want to access to
+this list, you can select URL list from the WINDOW pull down menu.
+Connect to the net, and double clicking on one of the URLS's in the URL
+browser will command netscape to display the URL.
+This way you can quickly check a lot of URL's you collected.
+
+Off line web page reading:
+You can mark URL's for later retrieval (and specify if you want,
+to get pictures, only from that specific host, and / or get this URL daily).
+Then, you can use the function GET MARKED URLS from the ONLINE
+pulldown menu, and read the URL's later offline, using the build in
+browser, or any specified external one, for example netscape).
+
+Q:
+NewsFleX does not fit my screen size.
+A:
+NewsFleX was developed for 800*600 screen size.
+Now I have allowed  for rescaling, however text in buttons is not rescaled,
+neither are some of the forms.
+This has my attention, but I am limited by the forms library (or my
+understanding of it).
+
+Q:
+Incoming articles are not always grouped together, how come?
+A:
+NewsFleX uses the 'official' way to test if an article is part of a thread.
+If an article comes in, it tests if any existing articles message id is
+present in the reference field of the new article.
+If found, it puts the new article next to that one.
+If the original article (the one replied to) is not there, a match is
+not found, and the article is added to the end of the list.
+More (other articles) may come in and also go to the end of the list.
+If more people replied to that same article, no match will occur.
+So there may be different little groups with the same subject.
+However in this version I also check for the same subject, if the match
+described above fails, the article is still put by articles with the same
+subject.
+ 
+Q:
+How much disk space does NewsFleX use?
+A:
+Thats up to you, how much articles you keep, from time to time you should
+select GROUPS then DELETE ALL NOT LOCKED ARTICLES IN ALL GROUPS.
+That will clear all you did not lock, but not what you marked for retrieval,
+and not what you did not read.
+I do this every time after I read all articles.
+
+Q:
+Do I have to do refresh group list every time I go on line?
+A:
+No, only when you think new groups have been added to your news server, that
+you really want.
+(This may not happen as frequently as you think).
+ 
+Q:
+What about backups?
+A:
+Its a good idea to once in a while when everything works OK, make a backup.
+backup everything from the ~/.NewsFleX/ tree.
+
+Q:
+NewsFleX is sounding the audio alarm. how do I stop it?
+A:
+press STOP.
+
+Q:
+What is the meaning of the (8453) numbers between parenthesis in the article
+list, and in the article body display?
+A:
+These are the article numbers,
+you will find the article headers as head.nnn and article bodies as
+body.nnn in the group directory, for example:
+(8453) in group alt.test refers to
+~/.NewsFleX/newsserver/period/alt.test/head.8453
+~/.NewsFleX/newsserver/period/alt.test/body.8453
+You can view headers and bodies with any normal editor, BUT DO NOT EDIT
+HEADERS and BODIES!
+You can also view headers by double clicking the right mouse button in the
+article list or posting list.
+Postings also have numbers, for head, body, attachment, custom_header,
+Posting files are in ~/.NewsFleX/postings/period/
+
+Q: 
+I see debug in the option pull down menu, what does it do?
+A:
+It prints to stdout (almost all) function calls and there arguments, plus
+some additional information.
+If you want to debug, start NewsFleX with:
+NewsFleX -shared > debug_file.
+Then while in NewsFleX, before you do what you want to debug, activate the
+debug option.
+Or, if you want to debug everything, start NewsFleX like this:
+NewsFleX -debug -shared > debug_file.
+After you did what you wanted to debug, disable the debug option.
+You will find the data in debug_file.
+Note: This file can become VERY long (megabytes) so use the debug option
+selective.
+ 
+Q:
+I found this bug, now what.
+A:
+Start NewsFleX like this:
+NewsFleX -shared > debug_file
+Then, just before the situation where you know the bug is:
+Select OPTIONS then DEBUG
+Do what you did to get the bug (it does not matter if the program crashes).
+Mail report to:
+newsflex@panteltje.demon.nl (Jan Mourer), and I will try to fix it.
+Please include a short description of the bug, and the last say 20 lines of
+debug_file.
+
+Q:
+What are the future plans with NewsFleX?
+A:
+No idea.
+Now working on improvement and new features.
+These will be realized as time goes by.
+
+Q.
+How do I get maximum speed?
+A.
+From the OPTIONS pull down menu select SETUP.
+Press 'Insert headers' OFLINE button.
+Press 'Get bodies by' MSG ID button.
+
+Q.
+How do I get minimum online (phone) cost?
+A.
+From the OPTIONS pull down menu select SETUP.
+Press Auto connect to net button. (only use as root)
+Press Auto disconnect from net button. (only use as root)
+For the last 2 buttons you must be root, these start the connect script
+and disconnect script.
+Make sure you got the right scripts. 
+And specify the full pathnames.
+
+Q.
+What is the mail script in setup, how do I use that:
+A:
+Get mail script input field:
+This will execute a file after NewsFleX has connected to the net (blue
+button), and before it gets news.
+It is intended for a script that read mail from a mail server.
+The field requires the full pathname, so do not just type popclient ...
+there.
+Typing /pathto/popclient arg arg arg will not work either, that will confuse
+popclient.
+Make a script for example get_my_mail, put the call to popclient in it,
+then enter the pathname to the script in the execute program input field.
+So the script could simply contain:
+popclient
+(if you had your name and password in .poprc)
+If the script is named get_my_mail and resides in /usr/local/bin then
+enter /usr/local/bin/get_my_mail in the 'Get mail script' input field.
+Now mail will be transferred from your pop server every time NewsFleX connects
+to the ISP.
+
+Q.
+Where do I find NewsFleX?
+A.
+NewsFleX has its home at:
+http://www.panteltje.demon.nl/newsflex/
+Any announcements will be made here, and in the news groups
+alt.usenet.offline-reader, and news.software.readers.
+
+NewsFleX has many more features, and new ones are being added all the time.
+Do a man NewsFleX, and find out about the latest goodies in your version.

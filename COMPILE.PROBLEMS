@@ -1,0 +1,22 @@
+If your compiler complains about 'crypt',
+try in /usr/include/
+grep crypt *
+
+That should list the files with references to 'crypt' in it.
+In my system it is unistd.h.
+
+If crypt it is a different file on your system, say xxxx.h, then add the line:
+#include <xxxx.h>
+in NewsFleX.h, just after the line #include <unistd.h>
+
+If you cannot find it this way, try including:
+#include <crypt.h>
+just after #include <unistd.h> in NewsFleX.h, and then recompile.
+
+
+If all else fails, try to use the binary executable.
+
+I have now linked against xforms.089
+Does not seem to make any difference from .088, the page up / down
+and cursor keys still do not work in the group list.
+Use the mouse.

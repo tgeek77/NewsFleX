@@ -1,0 +1,167 @@
+/* Where to install X-programs? */
+XLOCALBIN = /usr/bin
+
+/* Where to install the man pages? */
+MANDIR = /usr/X11R6/man/man1
+
+/* where to install the icon */
+/* XICONDIR = /usr/X11R6/include/X11/pixmaps */
+/* XICONDIR = /usr/share/pixmap */
+XICONDIR = /usr/X11R6/lib/X11/xfm/pixmaps/
+
+SRCS=\
+colorbox.c \
+posting_macros.c \
+custom_colors.c \
+url_history.c \
+html_tables.c \
+http_browser.c \
+modify_html_files.c \
+moved_urls.c \
+news.c \
+news_cb.c \
+url.c \
+http.c \
+http_cb.c \
+ftp.c \
+ftp_control_cb.c \
+ftp_data_cb.c \
+article_header_form.c \
+article_header_form_cb.c \
+articles.c \
+attachments.c \
+body_list.c \
+body_list2.c \
+coding_form.c \
+coding_form_cb.c \
+commands.c \
+cross_post.c \
+custom_cb.c \
+error_log_form.c \
+error_log_form_cb.c \
+filters.c \
+filters_cb.c \
+groups.c \
+helpers.c \
+helpers_cb.c \
+highlight.c \
+highlight_cb.c \
+incoming_mail_form.c \
+incoming_mail_form_cb.c \
+locate.c \
+mail.c \
+mail_cb.c \
+mcodec.c \
+message_id_list.c \
+new_articles.c \
+new_headers.c \
+newsserver_form.c \
+newsserver_form_cb.c \
+posting_header_form.c \
+posting_header_form_cb.c \
+posting_period_form.c \
+posting_period_form_cb.c \
+postings.c \
+postings_cb.c \
+random.c \
+regenerate.c \
+search.c \
+search_cb.c \
+secret.c \
+secret_cb.c \
+setup.c \
+setup_cb.c \
+shareware.c \
+summary.c \
+summary_cb.c \
+url_form.c \
+url_form_cb.c \
+NewsFleX.c \
+NewsFleX_cb.c \
+NewsFleX_main.c
+
+OBJS=\
+colorbox.o \
+posting_macros.o \
+custom_colors.o \
+url_history.o \
+html_tables.o \
+http_browser.o \
+modify_html_files.o \
+moved_urls.o \
+news.o \
+news_cb.o \
+NewsFleX.o \
+NewsFleX_main.o \
+setup.o setup_cb.o \
+mcodec.o \
+posting_period_form.o \
+posting_period_form_cb.o \
+newsserver_form.o \
+newsserver_form_cb.o \
+shareware.o \
+url.o \
+http.o \
+http_cb.o \
+ftp.o \
+ftp_control_cb.o \
+ftp_data_cb.o \
+regenerate.o \
+incoming_mail_form_cb.o \
+incoming_mail_form.o \
+mail_cb.o \
+mail.o \
+locate.o \
+body_list2.o \
+body_list.o \
+helpers.o \
+helpers_cb.o \
+new_headers.o \
+error_log_form.o \
+error_log_form_cb.o \
+message_id_list.o \
+cross_post.o \
+highlight.o \
+highlight_cb.o \
+url_form.o \
+url_form_cb.o \
+NewsFleX_cb.o \
+commands.o \
+attachments.o \
+postings.o \
+postings_cb.o \
+summary.o \
+summary_cb.o \
+groups.o \
+articles.o \
+search.o search_cb.o \
+filters.o filters_cb.o \
+custom_cb.o \
+new_articles.o \
+article_header_form.o \
+article_header_form_cb.o \
+posting_header_form.o \
+posting_header_form_cb.o \
+coding_form.o \
+coding_form_cb.o
+
+PROGRAMS = NewsFleX
+
+all::  $(PROGRAMS)
+
+/*LOCAL_STATIC_LIBRARIES = -lforms -lm $(XLIB) -static*/
+LOCAL_LIBRARIES = -lforms -lm $(XLIB) -lcrypt
+
+CXXEXTRA_DEFINES = -Wall
+
+NormalProgramTarget(NewsFleX, $(OBJS), , $(LOCAL_LIBRARIES), )
+
+install:: 
+	InstallProgram(NewsFleX, $(XLOCALBIN))
+	cp ./NewsFleX.xpm $(XICONDIR)
+
+install.man::
+	InstallManPage(NewsFleX, $(MANDIR))
+
+clear::
+	$(RM) $(PROGRAMS)

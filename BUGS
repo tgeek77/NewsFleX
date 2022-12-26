@@ -1,0 +1,157 @@
+This program is being debugged scratch ...... scratch....
+     *     *
+      * 0 *
+        *
+*****  *O* *****
+       * *
+      * | *
+     *     *	
+Compilation:
+This program was compiled with gcc version 2.95.2 on Linux 2.2.12 and linked
+to xforms.so.0.89 libc ELF
+No other platform has been tested by me, cause I do not have one.
+
+
+If you do not like the colors, try commenting out some lines in
+./NewsFleX/setup/colors (restart the program after that).
+Note that using a shared colormap may cause colors to look very different
+from the intended ones.
+
+
+The page up / down keys do not always seem to work with this version of
+xforms.
+Click in the scroll bars for now.
+Reported bug to the xforms developers, so far no reply.
+
+
+The auto disconnect from net option only works if the program 'knows'
+it was connected (that is you use it in conjunction with the auto connect
+to net option).
+So if you connect using some other method then the auto connect function,
+NewsFleX will not know about it, and assume you are not connected, and
+then will not disconnect if the auto disconnect from net option was active.
+
+
+Filters may cause an online crash if enabled.
+If this happens, disable filters (in the filter form), during online
+operations, then once offline change something in the filter form,
+(add and delete a character in one of the input fields) and enable filters.
+This will correctly filter the database.
+I have only seen this once, and the reason may well be something totally
+different.
+  
+
+If you use the alternate editor, do not do this while online, this will
+stop the incoming data stream.
+At the moment there are still crashes when using an externaleditor, save the     
+file from within you editor before closing it in NewsFleX.
+
+
+If you enable Sendmail (button in setup):
+For now, if you use reply via email, the auto disconnect from net function
+may be faster then the confirmation of the email send.
+You will not get an error, and the email may be send correctly, but if you
+do mailq there may still be something there.
+The above is especially true if you use named, and there is a host name
+lookup failure.
+In such a case, sendmail will queue the mail.
+To avoid this, send email with auto disconnect disabled, or ignore the
+mailq report.
+Or do not use sendmail.
+NewsFleX has its own SMTP mailing program build in, this will work correctly.
+
+
+Segfaults:
+If you get segfaults and can reliably reproduce it, let me know.
+
+
+Speed:
+If you get new headers online, select the group list first.
+It will take a long time if you display a long article list for
+the program to redraw the article list browser every time an article is
+received (mark it received).
+I added 'Insert headers off line' button in the setup form.
+This will decrease the on line time to the theoretical (which theory :) )
+minimum.
+Use this when you have a lot of articles in the groups (big data base).
+Then sorting will be done after the connection to the server is closed,
+(and possible disconnect from the net).
+The speed is really only limited by the hard disk (writing headers to disk),
+and the modem / whatever.
+This gives me 2.83 KByte per second on my 14k4 modem with a 486 DX 2 66,
+getting new headers in subscribed groups.
+Not bad at all.
+Getting marked article bodies is slower, because the next article is only
+requested when the present one is complete.
+The net connection may then ad up to a few seconds per article.
+(300 mS is typical).
+Added 'get articles by' MSG ID button in setup.
+This will send all requests at once, and is much faster.
+However this will not work on all servers.
+
+
+Word wrap in posting editor:
+Because the function fl_set_cursor_position in xforms is not working,
+the word wrap goes wrong if you insert text in the middle of a file,
+As the line wraps, and the text is reformatted, the rest of the text is
+appended to the end of the file.
+(I cannot move the cursor to the old position).
+In case this becomes problematic, use the ALT EDITOR button (with an
+alternative editor, I use joe, and then can also spellcheck from within joe
+by pressing ctrl [ followed by L).
+Or switch off wordwrap (goodies menu in posting editor).
+
+
+URL functions are still in development.
+No support for Java.
+No support for frames.
+
+
+Binary attachments:
+NewsFleX uses munpack as an decoder for base 64 and other encoded articles.
+If you try to do a 'LAUNCH', and munpack is not installed,
+NewsFleX may complain about parts of multipart pictures not being present.
+It will not tell you that munpack is not found.
+Multipart pictures may give problems:
+For the moment, if you have multi part pictures, get all the parts.
+Then run Launch on all parts.
+Ignore any error messages.
+Then do Launch once more on the first part.
+Worked for me.
+The problem with programming this is, that if you limit the headers to say
+100, you will likely not get all the parts, if there are more then 100 new
+headers.
+Personally for this reason I think it would be a good idea to NOT split
+files when sending. (NewsFleX does not split files for this reason).
+It only takes a short while to get a long file, it takes MUCH more time to
+get all the pieces and decode.
+And in the above example, if you do not have all parts, HOW are you gone
+get a previous header, if you had the headers limit on?
+The only way to do this is alter the last article read variable in
+subscribed_groups.dat to the one in subscribed_groups.dat~ for that group,
+and set maximum headers to a very large value.
+But this will lose all selections, and you will have to get headers again
+for that group.
+So if you do want all parts for sure, set maximum headers to a big value,
+but still the server may simply not have all the parts....
+If someone knows a working scheme, let me know!
+
+
+Memory:
+I recommend 16 MByte or more.
+Note that on a 486 more then 16 MB may slow things down, due to the fact that
+the L1 (internal) cache can only do 16 MB, and the L2 (external) cache will
+not add much speed.
+So sometimes the executable code may be in a part of memory that is only
+cacheble by the L2 cache, and speed will be HALF of what it is if there was
+only 16 MByte RAM!
+I have been told the pentium has 64 MByte limit, maybe the pentium II has
+more, do not know.
+
+Depending on memory size and the number of applications running,
+the system may be swapping to disk.
+This swapping may be annoying as it SEEMS the program is not reacting to the
+mouse (but it will, just wait.................).
+
+
+jan@panteltje.demon.nl (Jan Mourer)

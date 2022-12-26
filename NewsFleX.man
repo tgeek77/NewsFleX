@@ -1,0 +1,1667 @@
+                              MANUAL
+                               for
+          NewsFleX off line NNTP news reader binary release
+
+NewsFleX is registered Copyright (C) 1997, 1998, 1999, 2000 Jan Mourer
+email: jan@panteltje.demon.nl
+snail mail:
+J.Mourer
+Monnikebildtdijk 2
+9078 VE
+Oude Bildtzijl
+Holland
+
+		NewsFleX-1.1.9.5 2000
+
+NNTP Off line news reader
+
+If you want use binary attachments (send / receive), you need:
+ mpack / munpack (a base 64 capable encoder / decoder).
+ Mpack/munpack is available via anonymous FTP in 
+ ftp.andrew.cmu.edu:pub/mpack/
+ 
+For encryption using PGP:
+ There is encryption software (free ware) available at:
+ http://www.pgpi.com/
+ or
+ http://www.pgp.com/
+ There is an European and US version, some versions may be legal in only
+ certain parts of the world.
+ NewsFleX was only tested with PGP 50 i (European release).
+
+
+TO START NewsFleX:
+start NewsFleX with NewsFleX -shared
+If your trial period has ended, online operations will no longer be
+possible, but you will still be able to read any data you have.
+
+
+MULTIPLE SERVERS:
+Multiple servers are supported.
+To add a news server;
+Select WINDOW then NEWSSERVER LIST
+The news server form will pop up.
+Type the name of the newsserver in the bottom input field.
+Make sure you make no errors.
+Press the ADD button.
+Now an entry will be added marked 'current'.
+Online operations are only possible on the current entries.
+Now double click on the new entry, to select it.
+Press CLOSE in the news server form.
+From the OPTIONS menu select SETUP
+Fill in the data for this newsserver, and select the buttons.
+This setup can be completely different for each server.
+This allows you to easily use different servers at different ISP's.
+When all fields are filled in press ACCEPT.
+
+When the month changes, NewsFleX will ask you if you want to move the
+selected current news server database to one named after the previous
+year-month.
+If you answer yes, all data will be moved, and a new empty current will be
+created.
+You can still access the moved data, by selecting the newsserver year-month
+entry in the news server list.
+Any not send postings from old entries can still be send.
+You cannot get new data in an old entry.
+Al new data always goes to the current entry.
+
+Which news server and period you have selected is always displayed in the
+title of the main NewsFleX window.
+
+Deleting a news server entry is possible by selecting the news server list,
+(from the WINDOW pull down menu), single clicking on an entry, and then
+pressing the DELETE button.
+You will be asked for confirmation.
+Please be very careful, your data will be erased, there is no way to
+get it back. (unless you have backups, and understand the directory
+structure that NewsFleX uses).
+
+SET USER PREFERENCES
+Select OPTIONS, then SETUP
+Fill in your mail server, email and user name.
+Leave the rest as it is for later.
+Note the port number for the NNTP news service is usually 119, for the SMTP
+mail service it is usually 25.
+On rare occasion this may be different, that is why you can enter a
+different value.
+You cannot change the 'newsserver' field, you did set that using the
+news server list.
+AUTHENTICATION:
+If your news server requires authentication (username, password),
+fill in the username and password field in SETUP.
+If your news server does not require authentication, you MUST leave these
+fields blank, else authentication will start, and result in an error.
+SECURITY:
+The username and password for each news server is stored in
+~/.NewsFleX/newsservers.dat, and is not encrypted.
+Also it will be visible in the setup form.  
+
+
+FIRST TIME CONNECT
+
+ (YOU HAVE TO BE CONNECTED TO THE INTERNET, PPP OR SLIP MUST BE RUNNING).
+Select ONLINE, then REFRESH GROUP LIST
+
+NewsFleX will go online, and download a new group list.
+(This may take a long time on a slow link, my group list is now more then 950
+KBytes long).
+Wait until NewsFleX goes off line.
+Now NewsFleX has stored the 'active' group list, that is the list of news
+groups that your news server has available to you.
+From this list you can now select some groups you want to follow.
+Unless big changes happen, (new groups are added), you will not have to get
+this list again.
+You can now disconnect from the Internet (if nothing else is using it).
+
+To subscribe:
+From the GROUPS pull down menu, select SELECT ALL GROUPS
+It may take a while to display all the groups, as there may be more then
+22000.
+If you know what you are looking for, select GROUPS then SET DISPLAY FILTER
+then enter in the input field (for example) 'linux' (without the quotes).
+Press OK.
+After a few moments you should see all groups containing the word 'linux'.
+If you enter 2 words, for example  linux kernel  then you will see all
+groups that have these 2 words in them.
+
+Now mark the group(s) you want, by single clicking the mouse on it.
+From the GROUPS pull down menu, select SUBSCRIBE.
+
+	****NOW CLEAR THE DISPLAY FILTER if you used it ****
+From the GROUPS pull down menu select DISPLAY FILTER and clear the
+display filter.
+From the GROUPS pull down menu select SUBSCRIBED GROUPS
+
+Now you should see only the groups you subscribed to, and never have to
+bother again with lists, but you can always use the above procedure to
+search for groups.
+
+To get headers:
+ (YOU HAVE TO BE CONNECTED TO THE INTERNET, PPP OR SLIP MUST BE RUNNING).
+From the ONLINE pull down menu select GET NEW HEADERS IN SUBSCRIBED GROUPS
+
+You will see NewsFleX go online and in the bottom field of
+the screen it will report what it is doing.
+Once it is off line again you can start reading the headers in the
+subscribed groups.
+
+To read headers in a subscribed group:
+Select GROUP LIST
+Double click on the group you want.
+In the group list: new (unread) headers are red.
+If you want to mark an article for retrieval, double click on it (it will
+become purple).
+Double clicking on it again will turn it red again (un mark).
+
+If you want to follow any replies in a thread select the header, then
+From the ARTICLE pull down menu select FOLLOW THREAD.
+(The article will be automaticaly locked, so it will always be there as a
+reference, and will not be accidently erased if you do a purge).
+
+the same procedure for 'FOLLOW SUBJECT" etc.
+Do this for all the articles in all the groups you want.
+
+Now connect to the net again (if you had terminated the link).
+
+Select ONLINE then GET MARKED ARTICLE BODIES.
+
+After all data has been read NewsFleX will go off line.
+Depending on other application running you may now disconnect from the net,
+NewsFleX has stored all the data on disk, you can now access it any time you
+want.
+
+Reading received articles:
+Select GROUP LIST
+Double click on the group you want, the article list will now appear.
+New received articles (that were marked for retrieval) are now shown in blue.
+Double click on such a blue article, the article body should now appear.
+ If you select ARTICLE LIST again, the article will now be shown in black.
+ (black stands for read, well, at least accessed).
+
+If the article contains a picture (for example) you will see a lot
+of unreadable stuff, and somewhere " begin nice-picture.jpg",
+press LAUNCH.
+That will start the viewer (see setup helpers for what viewer).
+The next time you select this article from the article list the viewer will
+automatically start (but if you select ARTICLE BODY you can still see the
+data).
+
+If you want to keep an article (prevent it from being erased), while in the
+article body or article list select ARTICLES then LOCK ARTICLE.
+Once you are done with all articles in a group AND HAVE LOCKED THE ONES YOU
+WANT TO KEEP ):, select ARTICLES then DELETE ALL NOT LOCKED ARTICLES
+
+POSTING:
+To reply to an article or to write a new one, select POSTING
+Then select either NEW ARTICLE, FOLLOW UP ARTICLE, or REPLY VIA EMAIL
+You can only reply if you had selected an article body.
+You can only send a new article if you had selected at least a group.
+Now the posting body appears.
+Fields can be edited by selecting them with the mouse (if active they are
+white).
+Cut and paste is possible, select text with the left mouse button.
+Cut: Pressing grey delete will cut the selected text,
+Paste: put the cursor where you want to paste, then press the middle mouse
+button.
+If it is a new article, fill in the subject field.
+If you want to attach a (binary) file, fill in the path/filename in the
+attachment input field, or press the ATTACHMENT button and browse.
+
+Type the text in the big lower input field.
+When finished either press SEND NOW (you have to be connected to the net
+for that), or SEND LATER.
+Pressing CANCEL will abandon your article (and you loose any typed text).
+
+You will be returned to the posting list.
+If you select your article in the posting list, then select POSTING then
+MARK FOR TRANSMIT, it will be posted next time NewsFleX goes
+online (see goodies below).
+
+Double clicking on an entry in the posting list will get you back in the
+posting editor again, so you can modify a text.
+If a posting was send, and you modify the text, a new entry will be
+created, so you will always have a record of the postings you send.
+
+If you want to add a summary line, press summary in the posting body.
+That will pop up the summary editor.
+You are warned that a summary is present (for example in a follow up),
+by the summary button becoming orange.
+To remove a summary, press clear in the summary editor, then accept.
+
+If you want to add custom headers:
+Press HEADERS in the posting body editor.
+This will pop up the custom headers editor.
+There are 2 types of custom headers possible.
+Global custom headers, these are the same for all postings.
+Local custom headers, these can be different for each posting.
+Global and local custom headers can be modified, and will be saved to disk
+if you press ACCEPT.
+So each posting may have its own local custom header, but changing the
+global custom header has effect on all postings, but ONLY if these
+postings have global custom headers enabled.
+So if you want to actually send the headers, press the ENABLE button for
+the type of header you want to include in THIS posting.
+Then press ACCEPT.
+You will be warned headers are enabled, by the HEADERS button becoming
+orange.
+
+Examples of a global header line is:
+Organization: picosoft
+
+Example of a local header is:
+Distribution: ny
+
+The format of these lines MUST be correct, a space MUST follow the ':'.
+See rfc1036 (somewhere on the net).
+
+Using a different editor:
+In the postings form, press the ALT EDITOR button.
+Now the editor you specified in the top left field will be invoked in an
+xterm (or however you make the script), the '$'posting" argument will be
+automatically substituted by the correct file.
+Leaving that editor in the usual way, will write the (modified?) file
+to the posting editor input field, and close the xterm.
+Of cause you can use the paste, insert, and other function in your
+own editor. (I use joe, and this is specified in the input field, just
+scroll a bit with the cursor to see it, maybe a man xterm will tell you more
+about all the options I used to invoke it).
+
+If the button for the external editor does not work, you can try
+editing ~/.NewFleX/alt_editor_command.
+Some Linux distributions are different, maybe you could write:
+color_xterm -geometry 80x28 -sb -sl 500 -j -ls -fn 10x20 -e joe $posting
+or
+xterm -e joe $posting
+-geometry 80x24 sets the colums and lines of the xterm that pops up.
+-fn 10x20 the fontsize.
+-e joe executes joe in that xterm.
+$posting is replaced by NewsFleX with the path/filename of the current
+posting.
+You can test by simply typing
+xterm -e joe
+in an xterm.
+This should pop up another xterm with joe.
+Of cause you can replace joe by any other editor.
+At the moment there are still crashes when using this feature, save the
+file from within you editor before closing it in NewsFleX.
+
+Macros:
+This version supports 2 simple macros:
+$NAME is replaced by the name you specified in the setup form.
+$DATA is replaced by the current date.
+For normal postings the replacement is done during transmission.
+This is not visible to you, but the receiver will see the replaced
+text.
+Note that the formatting will change if the replacement text is of different
+length then the macro definition.
+For encrypted postings, the macro replacement is done BEFORE the encryption
+takes place.
+So the date will be the moment you encrypted the posting.
+Development of these functions is still in progress, so things may change.
+Feel free to send in your suggestions to newsflex@panteltje.demon.nl.
+this should get you going.
+
+
+POSTING BOXES:
+Select POSTING BOXES from the OPTIONS menu.
+If a new month begins, NewsFleX will ask you if you want to move your present
+list of postings to say Mar-1998.
+If you answer yes to this, then the 'current' entry will be renamed to
+Mar-1998, and a new 'current' entry (now empty) will be created.
+
+Things you did not send, or want to send again, can still be send from
+Mar-1998, after you select it.
+In fact, any new posting, reply to, or reply to via email always goes to the
+selected posting box.
+You can add these boxes (databases) by typing a name, for example
+'to_my_friends' in the bottom input field, and then pressing the ADD
+button.
+You will be warned if the box already exists, nothing will be overwritten.
+If you double click on an entry, that will become the selected entry, 
+From this moment onwards. all new postings, reply to, and reply to via email
+will go to this box (until you restart NewsFleX, then it will go to current).
+
+Do not use names like Mar-1998, (3 letter month-year format), as this may
+confuse the program, as it tries to create perhaps the same at the end of
+the month.
+Actually I should have inhibited the ADD function, but its is a nice feature.
+
+At start up 'current' is always automatically selected.
+
+You can always see which posting box and newsserver period is selected in
+the main NewsFleX window title.
+In order to keep the size of the posting lists (internally) short,
+(increased speed), you could for example make a new box each month, and name
+it with the month-year, for example Feb-1998.
+
+
+GOODIES:
+Maximum headers per group:
+When you subscribe to a group, the maximum headers limit for that group is
+set to the value specified in setup, for that news server.
+It is possible to set a different value for the maximum headers retrieved
+for each group.
+
+If subscribed groups are displayed:
+Select (make grey) one or more groups by single clicking on it.
+From the GROUPS pull down menu select SET MAXIMUM HEADERS.
+Enter a value in the pop up input field.
+
+If an article list or article body is displayed:
+From the GROUPS pull down menu select SET MAXIMUM HEADERS.
+Enter a value in the pop up input field.
+
+The maxima are indicated in the subscribed groups list by the symbol <=.
+For example:
+sci.news <=100 3
+This indicates that the limit is 100, and there were 3 new articles.
+
+
+IMPORTING SUBSCRIBED GROUPS FROM OTHER SERVER PERIOD;
+If you have say 33 subscribed groups in news.fast.net current, and you just
+added server more.news.for.all, then you do not have to select each
+individual group again.
+After you did a refresh group list on the new server, make sure you
+select nothing in the group list browser, then select SUBSCRIBE from the 
+GROUPS pull down menu.
+Instead of entering the group name, enter:
+<news.fast.net current
+(For this example of cause).
+So the format is: <newsserver period.
+No space allowed between <and newsserver.
+A space is required between newsserver and period.
+Now NewsFleX will use the subscribed groups in news.fast.net current to try to
+subscribe to the same ones in more.news.for.all.
+You will be warned if groups are not available in the new server, or if
+you already had subscribed to a group.
+Any existing data will NOT be overwritten (last article pointer respected).
+You do not have to be online for this.
+
+
+Signature:
+Pressing SIGNATURE button in posting header appends ~/.NewsFleX/signature
+this must be an ASCII file, no tabs or other control characters allowed.
+Note:
+If you try the make ASCII drawings, switch off variable spacing in the setup
+form (From the OPTIONS pull down menu select SETUP, release spacing button).
+Do not use tabs, these may be different on other viewers,
+
+If you want to use the feature that prevents signature quotation when
+posting a follow up article, you can press the 'Cut sig in reply' button
+in the setup form (OPTIONS then SETUP)
+This will cut of any text preceded by an empty line starting with:
+--
+in quoting an article.
+It seems to become a widely used practice to start ones sig this way.
+So an article that looks like:
+
+Hi, how are you.
+--
+THIS IS MY SIG
+\/\\\/
+/\\
+\/
+
+will be quoted in the posting editor like:
+Hi, how are you. 
+
+This button works global, on all newsservers, and settings are saved
+between sessions.
+
+
+View headers:
+Double clicking right mouse button in posting list will show the posting
+header as it would be transmitted.
+
+A double mouse click with the right mouse button in the article list,
+shows the article header (even if you do not have the body yet).
+
+Auto connect:
+From the OPTIONS pull down menu select SETUP.
+Connect program input field:
+If you are on a PPP dial up, fill in the full pathname and name of your dial
+up  script.
+If you want NewsFleX to automatically dial your provider, press the button
+next to the input field, it will become blue.
+Fill in the pid input field. (is already done).
+
+You need to use 2 scripts, /etc/ppp/ip-up
+and /etc/ppp/ip-down.
+pppd executes these scripts when the link comes up and goes down.
+
+My /etc/ppp/ip-up looks like:
+#!/bin/sh
+echo ppp is up > /var/run/ppp-up-flag
+
+The ip-down script looks like:
+#!/bin/sh
+rm /var/run/ppp-up-flag
+
+These scripts cause the file /var/sun/ppp-up-flag to be created if the link
+comes up, and to be destroyed if the links goes down.
+So the pid test input field looks like /var/run/ppp-up-flag
+
+This is also checked by NewsFleX to prevent a 'reconnect', since connecting
+again would kill the present connection.
+So you do not have to worry about using the blue button.
+ 
+Do not forget to do a chmod +x ip-up and chmod +x ip-dowm to enable
+execution of these scripts.
+If you already have a ip-up and / or ip-down script, add the above lines to
+these scripts.
+
+Disconnect program input field:
+This will disconnect you from your provider when NewsFleX is done.
+BE VERY CAREFUL with this feature, if there is ANY other program using
+the connection it will fail (for example a long FTP).
+You can enable this feature by pressing the button next to the field, it
+will become red.
+
+Get mail script input field:
+This will execute a file after NewsFleX has connected to the net (blue
+button), and before it gets news.
+It is intended for a script that reads mail from a mail server.
+The field requires the full pathname, so do not just type popclient ...
+there.
+Typing /pathto/popclient arg arg arg will not work either, that will confuse
+popclient.
+Make a script for example get_my_mail, put the call to popclient in it,
+then enter the pathname to the script in the execute program input field.
+So the script could simply contain:
+popclient
+(if you had your name and password in .poprc)
+If the script is named get_my_mail and resides in /usr/local/bin then
+enter /usr/local/bin/get_my_mail in the 'Get mail script' input field.
+Now mail will be transferred from your pop server every time NewsFleX connects
+to the ISP.
+
+The 'Check local mail' button in the setup form:
+If this button is active (yellow, 'YES') then NewsFleX will check
+for mail in /var/spool/user every so many seconds.
+Time between checks is specified in the interval input field in the setup
+form, next to the "Check local mail' button.
+If any mail is found, the mail indicator in the top right of the main
+NewsFleX form will become yellow, and the number of mail messages will be
+displayed.
+In case you are not using pop mail, but get mail via SMTP on port 25,
+this is useful, as you will be warned when using NewsFleX to read the news.
+In case you have aliases, for example webmaster, postmaster, make an alias
+file, for example like this: (part of my /etc/aliases)
+postmaster: root@localhost
+webmaster: root@localhost
+Then you will be warned when mail for any of these users comes in.
+
+The 'Beep on mail' button in the setup form:
+If this button is pressed then NewsFleX will beep 2 times if the
+'Check local mail' button is active, and a check for mail is done, and the
+number of mails increased.
+The function of this button is global (for all news servers).
+It's setting will be remembered between sessions.
+
+Get new headers time input field:
+Enter here the time of day (once every day), you want NewsFleX to go online,
+and get new headers.
+This only happens for the selected news server!
+Enable the feature by pressing the button next to the input field. (it will
+become orange).
+The time format is a 24 hour clock, 13:02 is one minute past one PM.
+Do not forget the ':', it is required.
+NewsFleX  will post all postings marked for transmit (see above), get all
+article bodies marked for retrieval, get new headers up to the maximum
+specified in the maximum headers per group input field, and check for
+threads. If it detects headers in threads it will also get those article
+bodies.
+Then it will go off line, and, if you had enabled the auto disconnect from
+net (red) button, disconnect form your ISP (Internet service provider).
+
+After you filled in the setup form, press ACCEPT (bottom right) to make 
+changes active.
+Press cancel to leave setup (nothing will be changed, your entries are lost).
+
+The description pop up button:
+Binary attachments (like pictures) may have a description that goes with
+them.
+This is most of the time also shown in the body of the article.
+pressing the DESC button (it will be green if active) enables a pop up form,
+showing the description, if binary attachments are launched that have one.
+
+Connect to server timeout input field:
+Seconds NewsFleX will wait for a reply from your server after it requests a
+connect.
+NewsFleX will try to connect 4 times, before it gives up.
+(not so sure thats the right way, but thats the way it works now).
+
+Audio alarm:
+If for any reason NewsFleX cannot execute the disconnect from net script,
+and it was in the auto (on time, TIMER button) mode, it will sound the audio
+keyboard beep continuously.
+STOP will stop the sound.
+(But hang up the phone yourself somehow, or pay for the phone cost).
+
+
+SEARCH:
+This is a LOCAL search.
+Select OPTIONS then SEARCH.
+Only the selected databases for articles and postings are searched.
+
+You can search in postings or articles, or both.
+If you search in articles, you can specify keywords for the groups you
+want to search.
+The groups searched are the ones that have ALL keywords in them, for example
+if the keywords are 'linux' and 'kernel', ONLY the groups which have 'linux'
+and 'kernel' in them are searched. (But all postings).
+Leaving the groups keywords field blank, will cause all groups to be searched.
+You can search any combination of headers, bodies, and attachments.
+If you search headers, at least ONE header field must be selected.
+If you select only the Others header button, only the OTHER headers are
+searched.
+Search keywords:
+The search is line based.
+Only lines are found that have all keywords in them.
+The sequence of the keywords is not important.
+Keywords must be separated by spaces.
+If you select case sensitive, upper and lower case will be treated
+differently.
+
+The meaning of colors used:
+all:
+grey	 selected.
+
+In group list (all groups):
+red	new group.
+green	group no longer available.
+blue	subscribed to this group.
+
+In group list (subscribed groups):
+black	subscribed
+green 	subscribed, but no longer in active list (after a refresh group
+	list). Online operation of these groups will fail, but not fatal.
+
+In article list:
+red		new article header.
+red bold	new header, article not available, should never occur.
+blue		article body present, but not read.
+blue bold	article body present, but not read, article not available,
+		This could happen if you did not read the article, and tried
+		to get the article a second time, and it failed.
+magenta		article marked for retrieval.
+dark green bold	article no longer available and body not present.
+dark cyan	article body present, article marked for retrieval again.
+dark cyan bold	article body present, article marked for retrieval again,
+		and failed.
+
+black		article body read. (This overrules all other colors,
+		un mark read to see the colors).
+underscored	highlighted keywords.
+bold		article no longer available.
+
+Since this is a bit complicated, as a simple rule:
+red			new header.
+magenta			marked for retrieval.
+blue			retrieved, but unread.
+dark green		retrieval failed.
+black			read.
+bold (any color)	no longer available.
+underscored		highlight (see highlight option from options menu).
+
+
+In posting list:
+black	send OK (also marked *SENT*)
+red	marked to be send automatically next time NewsFleX goes on line.
+magenta	send in progress (unverified and cannot be verified), for example
+	sendmail had no net connection, mail queued, and will try again.
+blue	something you are writing
+green	article could not be sent.
+
+Input fields are white if selected, else grey.
+
+
+FILTERS
+
+1 WHAT ARE FILTERS
+2 DESIGN PHILOSOPHY
+3 IMPLEMENTATION
+4 EXAMPLES
+5 CHANGING PASSWORD
+6 SECURITY
+
+
+1) WHAT ARE FILTERS?
+Filters are software tools to prevent information from being presented to
+you.
+
+2) DESIGN PHILOSOPHY.
+There are probably many ways to implement filters.
+As far as this news reader goes, what do we want to achieve?
+Prevent groups, articles or postings that have a certain information
+content to be shown.
+Or maybe even prevent these from being retrieved from the server.
+
+There is more than one user profile possible:
+If I use NewsFleX, and want my kids to use it, but do not want them to access
+certain groups, I could use filters to prevent those groups from being
+shown.
+
+The filter interface is protected with a password.
+This is censorship, of cause, or call it 'ratings' if you like.
+
+If I write letters to my beloved, and do not want anyone else using my news
+reader to read them, I could use filters to prevent our postings from being
+shown.
+This is pure privacy control.
+
+If I do not want any spam to appear in my favorite news groups, I can TRY
+to use filters to remove likely spam.
+
+If I want to prevent cross posters from reaching me, I can use filters to
+stop them from being listed in the article list.
+That way I will be saved from accidently replying to such a cross poster and
+by that becoming one myself.
+
+If I do not want to read anything from a particular source (person,
+server, organization etc.) I can use filters to achieve that.
+
+
+3) IMPLEMENTATION
+There must be a million ways or more to do this.
+This is the way I did it, and why.
+The prime design consideration for this news reader was short online times.
+This saves money.
+
+Using filters (a lot of them), filtering information coming in online, is
+slow (even very slow), and IRREVERSIBLE.
+Since writing a good filter is not easy, that irreversible is not such a
+good idea.
+
+We already have (after we use NewsFleX for a while) a large database.
+NewsFleX keeps references to the data in this data base in linked lists.
+There are lists for:
+groups
+articles (one list for each group)
+postings
+
+Now it is easy to add a 'permission' field to each element of each list.
+Then we can search the data base with our filters, and set the permission
+fields according to the results (and this can be done offline!).
+The DISPLAY routines in NewsFleX check the permission field and do not display
+what has no permission to be shown.
+Setting all permissions in the database takes time, but this happens
+off line.
+
+User interface.
+So now we can make a form, that can be filled in by the user.
+The form contains a 'filter browser'.
+You can double click on any line in the filter browser to select a filter
+for editing.
+Text fields and buttons on the form show the state of the filter.
+
+By changing these text fields and buttons we can modify the selected filter.
+
+A new filter can be created by pressing the NEW button.
+
+Filters can be deleted by selecting them (single click in filter browser),
+and pressing the DELETE button.
+
+
+Information:
+What kind of information do we need to create a filter?
+Also here are many ways.
+We distinguish;
+places we get information from (sources)
+Operations we do on this data (operations)
+
+Actions we initiate depending on the filter results.
+
+Where to get the information from:
+On the left side of our form we have from top to bottom the following
+buttons:
+
+These button are most unfortunately not as logically grouped as I would have
+liked (subject to change).
+
+POSTINGS button, if pressed: filter reads from postings.
+ARTICLES button, if pressed: filter reads from articles.
+ Since articles always belong to a group, there is a group field to the 
+ right of the articles button, you can enter key words in this field,
+ Only groups that have ALL the keywords in them are filtered by the selected
+ filter.
+HEADERS button, if pressed: filter reads from the article- or posting header
+ lines.
+ Since there can be many header lines, you can select these with the buttons
+ to the right of the articles button.
+BODIES button, if pressed: filter reads from the article- or posting body.
+ATTACHMENTS button, if pressed: filter reads from the article- or posting
+ attachment.
+Note: headers, bodies and attachments button operate for postings AND for
+articles, because both have a body, header and attachment.
+GROUPS button, if pressed filter reads from groups.
+
+
+KEYWORDS input field, this contains the actual keywords you want to use in
+ the filter.
+Below the keywords input field are 5 buttons, these define the way the
+ selected filter interprets the keywords.
+From left to right:
+CASE SENS button, if pressed upper and lower case will be tested for, so 
+ for example: frog does not match Frog.
+AND button, if pressed all keywords must be present for the filter to
+ see a match.
+ For example: you pressed headers, header subject, and entered 'hello there'
+              in the keywords input field (without the quotes).
+              Now if the subject of the article (or posting) reads:
+              'hello all of you there' then this is considered a match.
+              Note: 'there hello' would also give a match, the sequence is
+                    not important.
+NOT button, if pressed no keyword may be present, or it will be considered a
+ match.
+ For example: you pressed bodies, and entered 'frog dog' in the input field.
+              Now if the article or posting body reads 'There is a dog and
+              frog in the garden' , then this is considered a match.
+              If the body reads 'There is a dog in the garden' then this is
+              also a match. Same for only frog in the body.
+
+ONLY button, if pressed the text in whatever we selected must match for
+ 100% with the input field (a strcmp is done for the curious).
+ So the keyword input field is treated as one string (including spaces).
+ Note: In headers, these start with for example 'References: '.
+       The last space after':' is important.
+       You will have to type 'References: something' for a match.
+THE ABOVE THREE BUTTONS ARE INTERLOCKED, only any one at the time can be
+ operational.
+DENY / ALLOW button, if pressed (allow) reverses the result of the filter
+ compare, as far as the filter keywords go.
+
+
+Actions:
+Now we have filtered, and found a match or not.
+Now what to do in case of a match? 
+
+The following buttons set the action taken by the filter:
+SHOW GROUPS button, if pressed inhibits groups with a match to be shown.
+SHOW HEAD button, if pressed inhibits headers with a match to be shown.
+SHOW BODY button, if pressed, inhibits bodies with a match to be shown.
+SHOW ATT button, if pressed, inhibits attachments with a match to be shown.
+
+Ready, I have set my filters.
+In that case, press:
+ACCEPT button, if pressed saves all filters in the browsers to disk, and
+ scans the data base, setting permissions for all groups, articles and
+ postings. 
+
+CANCEL button, if pressed abandons the filter form, you lose ALL changes
+ you made to the filters.
+
+I want no more filters, I love spam, I want to see everything, this is MY
+news reader.
+In that case press:
+ENABLE button, if not pressed, display routines ignore any filters.
+
+
+4) EXAMPLES
+Some real examples:
+
+Select FILTER from the OPTIONS pull down menu.
+NewsFleX comes with password 'filter' for filter (without the quotes).
+Enter your password.
+
+Now we are in the filter form.
+First we create a neutral filter (just to have something).
+Release any buttons that are pressed on the filter form.
+clear any text in the text input fields.
+(Keep clear of the password input field, we do not want to change the
+password).
+
+Press NEW (next to the filter browser on the right), this will create a 
+new entry in the filter browser.
+Double click on the new entry in the filter browser, it will now be
+selected.
+
+OK lets make a censor (ratings) filter.
+Say I do not want any group containing the words:
+sex pictures gay violence
+to be shown.
+
+Press  GROUPS (bottom left)
+Enter 'sex pictures gay violence' in the keywords input field (without the
+quotes).
+Press AND (below the keywords input field)
+Press ENABLE (top middle)
+Press SHOW HEAD (aproximately. bottom form, middle)
+Press ACCEPT
+The form closes and NewsFleX will update the database.
+
+Now select SHOW ALL GROUPS from the GROUPS pull down menu.
+You wont see any groups with the above keywords in them.
+So you cannot subscribe to them, or get articles in them.
+
+Now lets make a cross post filter.
+This filter in this example only lets you list articles and headers that are
+cross posted to less then 3 groups.
+
+Press OPTIONS
+Select FILTER from the pull down menu
+Enter you password
+Now we are in the filter form
+Select the neutral filter we made above, by double clicking on it.
+Press NEW (this will create a copy of the neutral filter, and select it).
+Press ARTICLES (on the left side of the form).
+Press HEADERS (on the left side of the form, below articles).
+Press NEWSGROUPS (on the same height as articles button, second from right).
+Enter in the keywords field '$3' (without the quotes).
+ The $ indicates that this is a special command, not a keyword, the 3
+ indicates that only 3 extra fields are allowed in the newsgroup, limiting
+ the cross post to 3.
+    Note: '$' is only effective as special command if Newsgroups
+          is selected, and in the first position of Keywords the Keyword 
+          input field.
+          So you could well enter '$' or '$$' (without the quotes) if the
+          Subject button was pressed, and not the Newsgroups button.
+          That would filter any subject that has '$" or "$$' in it.
+Press AND (below the keywords field).
+Press SHOW HEAD (below and).
+Enable the filter (top middle), with the enable button.
+Press ACCEPT (bottom right).
+The form closes and NewsFleX will update the database.
+
+Now select any group, you will only see headers that are cross posted to 3
+news groups or less.
+
+ 
+Now lets filter out some site that is consistently putting spam in your
+favorite news group.
+Press OPTIONS
+Select FILTER from the pull down menu
+Enter you password
+Now we are in the filter form
+Select the neutral filter we made above, by double clicking on it.
+Press NEW (this will create a copy of the neutral filter, and select it).
+
+Now lets say that the culprit's name is spam.promoter@badsite.com
+Enter in the keywords input field 'spam.promoter@badsite.com' (without the
+quotes).
+Press ARTICLES (left side form).
+Press HEADERS (below articles, left side form).
+Press FROM (next to headers button).
+Press AND (below keywords input field).
+Press SHOW HEADER (below and).
+If it is any specific group, enter the group name, or keywords for that group
+in the Groups input field. (leave this field blank if you do not want to see
+that poster in any group).
+
+Enable the filter (top middle), with the enable button.
+Press ACCEPT (bottom right).
+The form closes and NewsFleX will update the database.
+
+Now select the group, you will not see any headers from that poster.
+
+
+5) CHANGING PASSWORD:
+Press OPTIONS
+Select FILTER from the pull down menu
+Enter you password
+Now we are in the filter form
+Enter your new password in the password input field (top right)
+Press ACCEPT (bottom right).
+The form closes and from this moment on your new password is in effect.
+Now its easy to make a mistake, so what to do if you forgot for example
+your password?
+Copy ~/.NewsFleX/setup/filter_password~ ~/.NewsFleX/setup/filter_password
+This will reset the password back to 'filter' (without the quotes) again.
+It is STRONGLY recommended that you move filter_password~ to a SAFE place,
+one that only you know about.
+
+
+6) SECURITY
+Q:
+Now the headers are not listed, but they ARE stored is it not?
+A:
+Yes, also the ones you do not want (only the headers though).
+But after you made your selections, and flush the database by selecting
+GROUPS, then from the groups pull down menu 'DELETE ALL NOT LOCKED ARTICLES IN
+SUBSCRIBED GROUPS, these headers are erased.
+
+Of cause it is possible for any one who has access to your files to read
+these headers, or even to modify your settings in ~/.NewsFleX/setup/
+Changing the password for the filters there is not so easy though, but it
+can be done.
+This is a limitation I do not know how to overcome.
+
+
+PGP Interface
+A limited interface is provided to PGP 50 i (European release) for UNIX.
+When viewing an article body the following commands are present from the
+ARTICLES pull down menu.
+PGP DECODE
+This will decode the visible message. It will start PGP in a xterm (so it
+is interactive).
+PGP CHECK SIGNATURE AND DECODE
+This will decode and show a clear signed message. it will also show some key
+info.
+For both commands:
+A file will be generated in the present group, decoded.nnn where nnn is the
+article number.
+Postings:
+The posting editor GOODIES pull down menu.
+When the posting editor form is visible, there is a little pull down menu in
+the top right corner labeled GOODIES.
+The following commands are available:
+ENCRYPT
+This will encrypt your text, it will ask for the recipients id.
+SHOW UN ENCRYPTED
+Before encryption NewsFleX saves the text, this will get the UN-encrypted text
+back, so it can be inspected and modified.
+This works both for encryption and clear sign.
+CLEAR SIGN
+Clear signs the text, it will become unreadable, it uses your user name as
+ID.
+APPEND ASCII PUBLIC KEY.
+Appends ~/.NewsFleX/setup/pgp_public_key.asc to your message, message stays
+readable.
+If pgp_public_key.asc does not exist, it is created using your user name.
+Note:
+You can have a file named pgp_passphrase present in ~/.NewsFleX/setup,
+if not present you will be asked for the pass phrase (in a xterm) when
+needed.
+Also after pressing SEND NOW or SEND LATER, the UN-encoded version is saved
+as ~/.NewsFleX/unencoded.nn, where n is the posting number, corresponding to
+~/.NewsFleX/body.nn and ~/.NewsFleX/head.nn.
+
+
+I am aware this PGP interface is very primitive, but PGP 50 i (European)
+release seems to be a bit of a moving target, and a bit experimental.
+So at this moment I do not want to invest more time in this PGP.
+Once it all clears up and becomes more stable and bug free, I might try to
+implement a more integrated approach.
+One can always insert or process files using PGP files directly.
+I could not even register my key with pgp.com.
+
+One Time Pad (OTP):
+To make up for the PGP problems, I have included the possibility to encrypt
+using a one time pad (an XOR is done).
+You can also generate (an almost) random pad.
+The length of the file you generate must be at least as long as the message. 
+
+
+UNDERSCORE
+In the articles list and posting list,
+it is possible to have articles and postings appear underscored,
+if they contain certain keywords.
+Select UNDERSCORE from the options pull down menu.
+Enter the keywords in the input field.
+An OR is done, so if you specify more then one keyword (separated by spaces)
+then anything that has one or more of these keywords will appear underscored.
+Example:
+Select options menu
+Select UNDERSCORE
+In the form that pops up:
+Press the ARTICLES button.
+Press the HEADERS button
+Press the SUBJECT button,
+Enter 'jpg mpg mpeg' (without the quotes) in the input field.
+Press the ACCEPT button.
+Then select a group that has jpg, mpg or mpeg pictures.
+Now any article in the article list that has jpg, mpg or mpeg in the subject
+will appear underscored.
+Same if you pressed the POSTINGS button, and look at the posting list.
+
+
+CROSS POSTING
+It is possible to cross post an article to a lot of groups.
+While in the posting editor, press the CROSS POST button.
+You will be asked for group keywords.
+Enter for example 'linux kernel' (without the quotes).
+Now the groups.dat active file is scanned for all groups that have the
+keywords 'linux' and 'kernel' in it (this is an AND function).
+Whenever such a group is found, it is appended to the To: field.
+The procedure may take a while if you have more then 22000 groups, like
+on my news server.
+Be careful with this option, the header file may become very long, and 
+posting the article will take a long time.
+Also you may encounter opposition (to say the least) from users of the
+groups you are cross posting to.
+Use at your own risk.
+
+
+ARTICLES WITH HTML CONTENTS
+If an article has html type contents (you will see a lot of <...> tags),
+you can try pressing the little button in the top right of the main form,
+left of the mail display field.
+This will redraw the article using the build in html decoder,
+Sometimes text will become more readable then.
+Pushing the button again will show the original undecoded text.
+If the button is grey and shows 'N' (from normal), no decoding is done,
+if it is yellow and shows a 'H' (from html), all articles shown are decoded.
+'N' is the default if you start NewsFleX.
+
+
+URL's
+It is possible to store URL's (Uniform Resource Locators), or more simply
+Internet locations, in the URL list.
+When viewing an article, and coming across, for example, something like:
+Latest info at http://www.we.have.all.the.latest.info.com
+then , if you want to access that site later on, using a web browser,
+try to cut and paste some part of the URL into it self.
+So: click left mouse somewhere in URL text, for example click left mouse
+on www, then keep mouse button down, and move to right until www is black.
+Then release left mouse button.
+Press middle mouse button.
+Now a question form will pop up, asking you for a comment about this URL.
+Just enter 'latest info' (without the quotes), or any comment you would like
+to make, so later, if you see this URL in the URL browser, you will be able
+to remember what it was about.
+Do this for every URL you want to keep (and access later).
+To view the URL list, select URL LIST from the WINDOW pulldown menu.
+The URL form will pop up.
+Please note that this form has a border, so you can easily drag it towards
+your browser, and use it from there, when online.
+
+About the URL form:
+In version -1.0.2 the URL form has become more complex,
+so all new features could be accomodated.
+Now selecting any entry in the URL bowser also sets the buttons on the
+right side, that is, the following are individual to each entry:
+NO PICTURES / PICTURES
+Depth
+ALL / HOST ONLY
+ONCE / DAILY
+
+Special about the 'dily' mode is, that it will only retriev an URL once
+on any specific date, but very day you go online.
+This was intended to get for example close prises of the stock exchange
+once every day (but not more then one time on the same day).
+
+Mouse operations on an entry:
+The general rule for marking and / or using an entry is:
+Left mouse double click marks / umarks for retrieval (toggle).
+Right mouse double click starts internal or external browser, if data is
+present, else marks the entry for retrieval.
+A single click on an entry selects it, the buttons on the right of the URL
+browser show the settings of that particular entry.
+You can also alter the state of the selected entry (ONLY) with these
+buttons (see above).
+The entries colors show its aqcuisition state:
+red new entry.
+magenta marked for retrieval.
+blue you data successfully aqcuired.
+black data accessed (read).
+The 'marked for retrieval' magenta color overrides others, even if read.
+
+The top right button gives you a choice of using an external brower,
+or the buildt in internal (simple text) browser.
+By double clicking with the RIGHT mouse button on any entry in the URL
+list, this browser is started.
+The script on top of the URL list is set for netscape, but can be changed
+for other browsers.
+Consult the documentation of you browser for the form this script has to
+take.
+ NewsFleX replaces $url with the URL, which is the first field in the text
+in the URL list.
+
+An URL list entry consists of 4 fields:
+The first field holds the name of the URL.
+The second field is the comment you entered (between parenthesis).
+The third field is the group the URL came from, followed by the article
+number in that group.
+Double clicking on the text also shows this article, so you can reference
+it.
+If the article was erased you may get a blank screen.
+You will also get a blank screen if the article was in an other server /
+period database.
+The fourth field is the date you last accessed that URL.
+
+You can manually enter a URL, by typing it in the bottom input field,
+then pressing the ADD button.
+You do not have to enter any thing else, only the name, but it is possible
+to enter a comment too.
+
+Delete a URL by selecting it with a single mouse click, then press DELETE.
+Single click also copies the URL to the input field, where you can edit it.
+Pressing ADD will make a new entry with the edited text, but any group / 
+article number is now ignored, as it is no longer coming from that source.
+
+Sometimes, for example if an URL is at the end of a line, it may contain
+illegal characters, like for example: Please goto http://illegal.char.com.
+In such a case you will have to edit out the termination dot.
+
+The above procedure can also be used to get an URL from the description popup
+(in binary attachments), if this popup is enabled in setup.
+
+To get an URL from the posting editor, put the cursor somewhere in the url
+field, and press the URL button (located on the top of the form).
+This is useful when getting an URL from incoming email.
+The reason this procedure is different, is to allow cut and paste with the
+mouse, and this uses all three buttons.
+
+Note: pressing 'cancel' in the comment request popup will cancel the process
+of adding the URL. 
+An URL is normally added to the bottom of the list, but if it already
+exists in the list, then that position is used, and the comment in that
+position is replaced by your latest comment.
+When the URL browser is shown, the first not accessed URL is shown at the
+top.
+ 
+Searching for URL's in the URL browser.
+Once you have many URL's, you may need the search function in the URL
+browser.
+Enter a keyword in the Search keyword input field, select case sensitive
+or case not sensitive search with the CASE SENS button right next to it, and 
+press SEARCH (on the right of the CASE SENS button).
+All URL's stored will be searched, if a match is found in either the URL or
+the description you entered, the the URL will be selected.
+If you press SEARCH again, the search will continue from the selected point,
+if more then one match is possible, you will advance to the next one every
+time you press SEARCH.
+If no match is found, or you had reached the end of the list, a warning will
+pop up, and if you press SEARCH once more, the search is started again from
+the top.
+
+The 'get url' functions. **Function is in development**
+NewsFleX can get an URL and, without the use of a web browser (such as
+Netscape), store it on disk.
+Files will be stored in:
+~/.NewsFleX/http/hostname/path/filename.
+If no filename is specified, it will get the index file and use index.html
+locally.
+So for example if the URL was http://www.cnn.com/, you will find the main
+index in ~/.NewsFleX/http/cnn.com/index.html.
+or  ~/.NewsFleX/ftp/cnn.com/index.html.  for ftp files.
+(Note the 'www.' is striped off).
+
+In the URL browser the following color scheme is used:
+red         a new URL (you created it with a mouse click or with ADD)
+black       an accessed URL (with the external browser).
+dark green  a failed URL, you did GET MARKED URLS from the online menu,
+            but the URL was not accessable (server down, no longer exists).
+blue        we have this URL on disk (download OK).
+magenta     URL is marked for retrieval, use GET MARKED URLS to get these.
+
+**Functions is in development**
+
+AUTOMATIC RETRIEVAL OF URL'S:
+Once you added an URL to the URL list, it is possible to get these URL's
+automatically and store these on the local disk, without the help of any
+other program.
+To get URL's automatically:
+Select WINDOW
+Select URL LIST from the window pull down menu.
+In the URL list double click left mouse on the URL you want, so it becomes
+purple. (Purple indicates marked for retrieval).
+Do this for all URL's in the URL list you want to retrieve.
+
+Set a depth in the depth input field.
+Depth 0 only gets the URL, depth 1 also any .html documents it refers to
+(has as links), depth 3 will also get any documents referrred to by these,
+etc..
+Be carefull with high numbers for depth, NewsFleX may try to get the whole
+world wide web,
+Select ALL or HOST ONLY.
+If host only is selected, only documents on the host the URL points to
+will be retrieved (except for pictures, these have no limit). 
+
+Then press ACCEPT in the URL list.
+Now select ONLINE.
+Then from the ONLINE pull down menu select GET MARKED URL's.
+
+Now NewsFleX will go online and get all marked URL's and store these
+on disk.
+If you had the PICTURES button pressed in the URL list it will get all
+pictures also.
+NewsFleX keeps a list of retrieved URLS's, to prevent it from going into
+a loop if two documents point to each other.
+It will only get a specific URL once.
+It also keeps a list of moved URLS's (is one session, index files are
+aomatically modified to pioint to the moved location (different directories
+on disk).
+*Warning* Better use big depoth values with great care.
+
+
+READING URL'S OFFLINE:
+Once URL'S have been stored on disk, you can read them offline with
+any web browser (for example Netscape).
+The procedure is as follows:
+Select WINDOW
+Select URL LIST from the window pull down menu.
+Select EXTERNAL BROWSER
+Select BR OFFLINE
+Make sure you web browser is running (start Netscape).
+Double click with the RIGHT mouse button on the URL you want to view.
+Netscape will display it as a file on local disk.
+Note that you can see if a URL is present, id it is, it will be blue in the
+URL browser.
+Once you have accessed it, it will become black.
+If you tried to read it of line (while it was not there), its entry
+will turn purple (marked for retrieval).
+Double clicking again will unmark it again.
+If you had deleted the file your self, the entry will become purple again,
+marked for retrieval again.
+
+Unmarking (without activating the browser) is possible by double clicking
+with the LEFT mouse button on the entry in the URL list.
+Double clicking again will mark it for retrieval.
+
+**IMPORTANT**
+getting many URL's offline, especially if you have the PICTURES and
+RECURSIVE mode activated, will get many files on disk.
+Check ~/.NewsFleX/http/   and   ~/.NewsFleX/ftp/  directory trees
+every now and then, and clear these after you copied the files (especially
+the ftp'ed files) to a safe place.
+Else your disk will be filled up with web pages gradually.
+
+READING URL'S ONLINE:
+The procedure is as follows:
+Select WINDOW
+Select URL LIST from the window pull down menu.
+Select EXTERNAL BROWSER
+Select BR ONLINE
+Make sure you web browser is running (start Netscape).
+Make sure your net connection is present (ppp must be running).
+Double click with the RIGHT mouse button on the URL you want to view.
+Netscape will try to get it display it.
+The entry will now become black in the URL list (accessed).
+
+So the general rule is: <RIGHT> mouse button activates browser.
+Also: delete in the url form deletes the entry, BUT NOT ANY FILES.
+These will still be in the ~/.NewsFleX/ftp or ~/.NewsFleX/http/ tree.
+
+Note:
+When is offline web page reading useful? an example:
+select WINDOW, then URL LIST.
+Enter http://www.cnn.com/ in the bottom input field, then press ADD.
+Now double click with the left mouse button on the created entry in the
+list (it will become purple).
+Press PICTURES,
+set Depth to 0,
+Press ACCEPT.
+In the usual way, you can now from the ONLINE menu select the new option
+GET MARKED URLS
+NewsFleX will go online and get all the news in QUICKNEWS, including the
+pictures.
+
+Now, later, offline, select WINDOW, then URL LIST,
+select BR OFFLINE,
+select EXT BROWSER.
+Make sure you have started Netscape.
+Double click with the RIGHT mouse button on the URL.
+Now Netscape will display the URL including the pictures.
+In the same way you can also ftp.
+
+SHOW ALL / MARKED ONLY button:
+If activated (orange color), only URL's marked for retrieval are show.
+This speeds up browser drawing (if you have a lot of URL's), and makes
+it easier to select (double click right mouse button) from many URL's after
+you got the data.
+
+INTERNAL WEB BROWSER
+This browser is basically designed to be able to read the downloaded
+files from http servers.
+
+It is text oriented, a bit a la Lynx.
+You can view picures however, if a helper is specified for that format.
+To start the off line browser:
+Select WINDOW
+Select URL LIST
+In the URL list select INT BROWSER (top right button).
+Select BR OFFLINE (button below the previous).
+Assuming (read about URL's if you did not get any) you have downloaded
+some URLS's (blue in the URL list), double click right mouse button on
+one (blue URL).
+Move the URL list in the background by clicking right mouse on its frame.
+Now the URL should be displayed, all references should appear converted
+to local files (well eh.. almost all, working on that).
+Now use left mouse to mark (move like in cut and paste) one or more
+characters of a link.
+Then press middle mouse.
+This should get the link (if present on disk).
+If the link is a picture or sound file, or something not text, the
+corresponding helper program is started.
+Four buttons will appear differently in the top of the NewsFleX main
+form.
+These are:
+RELOAD   (reloads the file from disk),
+BACK     (displays the previous URL (=file), if there is one, (at the same
+         position),
+FORWARD  (displays the next one (if there is one, or if you moved back).
+ADD URL  (add the URL that the mose is on to the URL list, and removes
+         the file://hoe_dir/.NewsFleX/http/ prefix in the process.
+At the moment tables should work, also center.
+Due to xfoms limitations, I cannot change fonts in the display, nor include
+inline pictures, change colors, etc.
+Please note that the browser is still in devellopment (as is everything
+else).
+To get back to news reading, close the URL form, or press for example
+the GROUP LIST button in the main NewsFleX form.
+
+
+MEMORY USE:
+My experience is that if you want to run for example netscape, and NewsFleX
+together comfortably, you may need 20Mbyte RAM, or more.
+With less, the system will start swapping to disk, and performance will
+degrade towards the unusable.
+This was tested with netscape 3, version 4 will be worse, as its code size
+is much bigger.
+So maybe 32Mbyte RAM would be a good starting point, as probably more
+applications will be running.
+This is much more of influence on the performance of you system then a
+faster processor would be, since, when swapping to disk, the disk speed
+sets the performance, not the processor.
+Note:
+On a 486, due to the fact that the internal cache can only cache 16 MByte,
+adding more then 16 MByte may slow down your system (as much as 100 %).
+this happens when the executed code is in the non cached area of RAM.
+The L2 (external) cache only has a few percent (< 20) effect. 
+The limit for a normal pentium is 64 MByte.
+This has nothing to do with the mother board or the size of the on board
+cache.
+
+
+ALTERNATE EDITOR:
+You can select an alternate editor in the posting form.
+Enter your favorite one in the top left input field.
+For example, if you want to start 'joe' in a xterm, enter:
+xterm -e joe $posting
+$posting will automatically be replaced by the correct posting path/filename. 
+Press ALT EDITOR button to invoke the editor you specified.
+Leaving the editor in the normal way will bring you back to the posting
+form, the modified text will appear there.
+
+
+CANCELING ARTICLES ALREADY SEND:
+You can cancel an article that you send to the server, if your ISPs
+sys adm. allows this.
+Select the article you want to cancel in the article list.
+Select CANCEL ARTICLE from the ARTICLES pull down menu.
+This will generate a cancel posting and mark it for transmit.
+You can view this cancel posting by selecting WINDOW, then POSTING LIST
+It will be all the way at the bottom.
+The cancel command will be in the custom header.
+Next time NewsFleX goes on line it will be send.
+There is no guarantee this will work, it may be done manually at a later time
+by your ISP's sys adm, and you may or may not get a confirmation by email.
+You cannot cancel an article that you did not post yourself, see rfc977
+(somewhere on the net).
+
+
+ERROR LOG:
+If online, and auto disconnect from net is enabled (setup),
+any errors are not displayed using using a pop up, as this function
+waits for user input (to press OK), and the system would stall, and never
+go off line again.
+This could result in a huge phone bill.
+NewsFleX does not go off line at any error, it tries to execute the next
+command, in order to get as much done as possible.
+However, fatal errors, like a failing server connect, will cause NewsFleX to
+go off line.
+In the above situation errors are written (appended) to
+~/.NewsFleX/error_log.txt
+You can view the error log at any time by selecting WINDOW then ERROR LOG.
+If the file becomes to long, you can press the clear button to erase it.
+
+SOME SPECIAL FUNCTIONS IN SETUP:
+'Insert headers OFFLINE / ONLINE' button in setup.
+The purpose is to be able to do the sorting of the new headers off line,
+this saves a lot of phone cost.
+The disadvantage of doing it off line is, that in case of a crash, you
+loose all new headers.
+The other disadvantage is that article bodies in 'follow thread' and 'follow
+subject' are only marked for retrieval, not retrieved in this session. but
+the next time online.
+So I provide a choice with this button.
+
+'Get bodies by NUMBER / MSG ID' button in setup.
+This selects the way marked article bodies are retrieved from the server.
+Normally, if by number, bodies are retrieved by news group and number.
+The next one is requested only after the present one is completely received.
+If 'MSG ID' is selected, all article bodies marked for retrieval are send
+in the form of their message id to the server.
+The server then sends the bodies as a stream, in the sequence it can find
+them.
+So the order is changed.
+NewsFleX uses each incoming bodies message id to look up the group and article
+number in a list.
+This is faster then doing it by number, but may give problems with some
+servers, even my server is not 100% rfc977 compatible (the standard).
+And, rfc977 specifies no text for error 430, and NewsFleX NEEDS a message id
+in this mode, so your mileage may vary.
+For this to work, NewsFleX MUST be able to read the message id's in case
+numeric code 222 and 430, that is, the server MUST send some text.
+So if this mode does not work, use get by number.
+(It is not dangerous to try, you would just get message not available).
+Try in a test group, mark some headers for retrieval, then get marked
+article bodies, and see what happens.
+One advantage of the get by message id mode is that you can get marked
+article bodies from a different server.
+You can do:
+telnet your_news_server 119
+If it says something like:
+200 news.wxs.nl Netscape-Collabra/3.5 34018 NNRP ready (posting ok).
+then forget it, these servers are not NNTP compatible, and if you try
+article <messageid> you will get an error.
+As you see, my current ISP changed to NNRP, and now I cannot continue
+development of get by message id mode.
+I personally think this is a very stupid move, both from netscape and my
+ISP.
+(The above no longer applies, changed ISP).
+It will still work with get article by number though.
+DO NOT try a different server to get new headers EVER.
+This would mess up the articles.dat files, and your data base.
+It is OK to post to a different server.
+
+'Show articles ONCE / ALWAYS' button in setup:
+If this is set to ONCE the message id of every incoming article is checked
+against the ones already received in this session.
+If the same article is already present, it is ignored.
+This way cross posted articles only show up in one group.
+This only works for the current session, doing it for the whole data base
+would take a very long search time.
+However this gets rid of most of the cross posts, saving you from reading
+the same header over and over again.
+
+'Use sendmail YES / NO' button in setup:
+If this is set to YES then mail is posted by executing sendmail.
+If set to NO, mail is posted using a very simple internal SMTP driver.
+The advantage of not using sendmail is that the 'From: ' address is the user
+email address, and not some domain / machine address generated by sendmail.
+I still retain the 'Reply To: ' field however.
+So even if the receiving side does not use reply to, the return mail
+will go to the email address.
+
+Lines first YES / NO button in setup:
+Normally in the article list, the number of lines (size) of an article is
+printed after the posters name.
+This may make it difficult to read (you may need the horizontal scroll bar to
+make it visible).
+It the 'Lines first' button is pressed, the lines will be printed first.
+This is useful in for example binary groups, to check the real size
+of the file, before marking it for retrieval.
+This button is GLOBAL, setting it has effect for all news servers.
+
+You can now reply to incoming mail (in /var/spool/mail/user), by
+single clicking on the sender / subject entry in the incoming mail form,
+available via the 'INCOMING MAIL" selection in the WINDOW menu.
+The mail will NOT be marked read, and /var/spool/mail is not modified.
+Read mail (with you normal mail program (pine?) ) is black, unread blue.
+
+
+SEARCH FOR KEYWORD from the ARTICLES pull down menu.
+This will ask for a word, and search the article body display for it.
+The text is aligned so the word is in the second line from the top.
+This allows for some context to be read.
+You will be asked for the next occurrence of the word.
+SEARCH KEYWORD in the GOODIES pull down menu in the posting editor does
+the same.
+
+
+REGENERATION OF CORRUPTED INDEX FILES:
+Regenerating ~/.NewsFleX/news_server_name/period/subscribed_groups.dat in
+case of file corruption or accidental erase.
+Select REGENERATE SUBSCRIBED_GROUPS_DAT from the OPTIONS pull down menu.
+A new subscribed_groups.dat will be created (index).
+The last article read pointer for each news group will be set one higher
+then the last article present on this machine in that news group.
+Of cause you can also just subscribe again, this will set the last read
+pointer to zero however.
+
+Regenerating ~/.NewsFleX/news_server_name/period/group_name/articles.dat
+in case of file corruption or accidental erase.
+Select REGENERATE ARTICLES.DAT from the OPTIONS pull down menu.
+Enter the group name.
+A new articles .dat (index) will be created, all articles will be marked
+read and locked.
+Possible attachments will have to be launched again form the article body.
+
+Regenerating ~/.NewsFleX/postings/period/postings.dat in case of file
+corruption or accidental erase.
+Select REGENERATE POSTINGS.DAT from the OPTIONS pull down menu.
+A new postings .dat (index) will be created, all postings will be marked
+send and locked (even if they were not send).
+Any attachments and local custom headers will be signaled in the posting
+editor.
+However it is not possible to determine if global custom headers were
+enabled.
+Note:
+Nothing helps against rm -rf in ~/.NewsFleX, sorry, no way I can do that,
+please make backups.
+The above mentioned regenerate will only recreate defective index files,
+it uses the head.xxx, body.xxx attachment.xxx and custom.xxx files.
+
+
+WORD WRAP IN POSTING EDITOR:
+When taking the text from an article, in case of a reply,
+this text is ALWAYS quoted with '>', and long lines are wrapped.
+Qoting is maintained for the wrapped lines.
+
+Word wrapping for the text you write can be activated like this:
+In the posting editor select the 'goodies' pull down menu.
+Then click on WORD WRAP.
+If the box left to WORD WRAP is blue, word wrap is activated.
+Added wrapping in the posting editor, in order to prevent long lines from
+becoming a problem in other news readers.
+Note that if variable spacing is selected in setup, the effect may look
+funny.
+Viewed on a news reader with fixed spacing it will be OK however.
+If the user types a line containing of only characters without any spaces,
+the line is cut and the bell is sounded as a warning.
+In all other cases the line is cut at the last space, and the word being
+typed will appear on a new line.
+In fact, every time the horizontal cursor position advances beyond the
+maximum line length , the whole document is reformatted.
+That includes any previous or inserted text.
+Since I am using the xforms library, I had to take this approach as xforms
+only allows me do do things in the call back.
+Doing things in the call back lags by the characters being typed.
+This would lead to missing the maximum characters limit.
+Now this is corrected by reformatting the document from the start.
+No characters are missed that way. and it works very well.
+
+On very long documents the alternate editor should really be used, as input
+becomes to slow to be useful.
+
+You can set the maximum line length in the setup form (OPTIONS then SETUP)
+in the posting wrap input field.
+The default is 78 characters.
+This is a global setting for all newsservers.
+
+MAIL FLAG FIELD
+In the top right of the screen a small field displays the number of mail
+messages in /var/spool/mail/username.
+This field is updated at startup, if you auto get mail, and if you select
+incoming mail from the window pull down menu.
+If any mail is present the field is yellow (and displays the number of
+messages), else it is white and left blank.
+If you select Get local mail and a period for that, from the setup form,
+LOCAL mail (/var/spool/mail/user) is checked every period seconds.
+If you are conected via SMTP to your server (ISP) (you are not using pop),
+the mail field will show any incoming mail from anywhere.
+If you are using pop, it will only show what comes in on the local network/
+machine.
+
+ALWAYS GET ALL ARTICLES IN GROUP option from the GROUPS pull down menu:
+If this is selected, all marked groups will be forced to ALWAYS get all
+articles and bodies up to the maximum header limit.
+You will see the text 'GET ALL' appear next to groups marked that way.
+So there is no need to make any selections for those groups.
+This mode can be cancelled by selecting these groups, and then using the
+ONLY GET MARKED ARTICLES IN GROUP form th GROUPS pull down menu.
+
+
+USER CONFIGUARABLE COLORS:
+The file ~./NewsFleX/setup/colors holds the default definitions for the
+colors used by the xforms library.
+NewsFleX reads this file at startup only.
+Commenting out definitions, or adding new ones allows you to create a
+personal look.
+For changes to become effective, you will have to exit and then restart
+NewsFleX.
+Note that using a shared colormap may cause colors to appear very different
+from the intended ones.
+ 
+
+FILES:
+~/.NewsFleX/
+error_log.txt            error log
+filters.dat	         filter settings do not edit
+filters.dat~             backup filter settings
+global_custom_head       global custom headers for posting
+global_custom_head~      backup
+k.dat                    your personal key to unlock the program
+k.dat~
+newsservers.dat          news server settings do not edit
+newsservers.dat~         backup
+posting_periods.dat      postings data base settings do not edit
+posting_periods.dat~     backup
+postings/                all data postings stored here
+signature                you can put your ASCII art here
+signature~               backup
+urls.dat                 URL data base do not edit
+urls.dat~                backup
+
+~/NewsFleX/setup/        setup data stored here
+alt_editor_command       command to invoke an alternate editor (in a xterm)
+browser_get_url          command to invoke a web browser
+current_period           current selected period
+current_period~          backup
+filter_password          encrypted filter password do not edit
+filter_password~         backup (see man NewsFleX)
+fontsizes                font sizes of all forms do not edit   
+global_flags             some global settings do not edit
+helpers                  helper programs
+helpers.bak              backup
+helpers~                 backup
+highlight_flags          underscore form data do not edit
+highlight_keywords       underscore form data do not edit
+new_data                 flag indicating new articles have been received
+                         do not edit !
+pgp_passphrase           PGP pass phrase (optional)
+pgp_public_key.asc       PGP public key (optional)
+search_flags             search form data do not edit
+search_groups            search form data do not edit
+search_groups_keywords   search form data do not edit
+search_keywords          search form data do not edit
+
+~/.NewsFleX/localhost/   data directory for news server localhost 
+groups.dat               the news server active list (plus some flags) do
+                         not edit
+groups.dat~              backup
+
+~/.NewsFleX/localhost/current/   data for current period of news server
+                                 localhost
+news.announce.newusers/  data for group news.announce.newusers         
+subscribed_groups.dat    subscribed groups plus flags do not edit
+
+~/.NewsFleX/localhost/current/alt.fun/ data for group alt.fun
+articles.dat             index file for all articles in this group
+                         do not edit
+articles.dat~            backup
+head.nnnn                header for article nnnn
+body.nnnn                body for article.nnnn
+attachment.nnnn          attachment for article nnnn
+etc. etc.:
+xxx.nnnn                 something belonging to article nnnn
+    
+Same structure is used for:
+~/NewsFleX/postings/current/
+postings.dat            index file for all postings in current
+postings.dat~           backup
+head.nnnn               header for posting nnnn
+body.nnnn               body for posting nnnn
+xxx.nnnn                something belonging to posting nnnn

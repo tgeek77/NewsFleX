@@ -1,5 +1,3 @@
-# Old README
-
 I here by release NewsFleX (a further development of xagent) under the GPL.
 I have disabled the expiration date test in shareware.c, so no online limitation apply.
 
@@ -33,5 +31,4 @@ If you compile on libc, remove the -lcrypt in the Imakefile before
 you compile.
 
 
-# Archivist Notes
-
+                                *

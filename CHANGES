@@ -1,0 +1,33 @@
+Changes from 1.0.6:
+Long references lines are now trimmed according to rfc1036-new-draft.
+This implies the 6th entry is removed, the last 9 entries will be left
+present.
+I have also limited the maximum number of entries to less then 20.
+Header lines are folded if longer then about 800 bytes.
+
+Changes from 1.1.9.3:
+operations on multi line entries in posting editor now work for all lines,
+not only the first line.
+Host only in get URL now will work if server specifies same URL by accident.
+
+Changes from 1.1.9.4:
+'Beep on mail' button in setup form:
+If this button is pressed then NewsFleX will beep 2 times if new mail arrives
+and the 'Check mail' button was also pressed.
+ 
+Alt editor in posting form used to crash sometimes.
+Added a lot of checks in do_alt_editor() in postings.c.
+Also disabled all forms in that routine, so no user action can change
+any parameters.
+Wait and see if OK now.
+
+Posting wrap input field in posting editor added, a global variable that
+determines where the word wrap in the posting editor takes place.
+
+You can now enable an automatic line in replies to articles via news and
+mail, by pressing the button in the setup form next to the 'posting source'
+input field.
+In this input field, the macros $D (date) and $N (name) will be replaced by 
+the date the original message had, and the name of the original poster.
+The expanded macro line will appear at the top of your reply, followed
+by an empty line.
