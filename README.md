@@ -29,7 +29,7 @@ Keywords:       NNTP, offline, NEWS, news reader, Free Agent, HTTP, SMTP, FTP,
                 xagent, xforms
 Author:         jan@panteltje.demon.nl
 Maintained-by:  jan@panteltje.demon.nl
-Primary-site:   http://www.panteltje.demon.nl/newsflex/ ([archive](https://web.archive.org/web/20010812013234/http://www.panteltje.demon.nl/newsflex/))
+Primary-site:   http://www.panteltje.demon.nl/newsflex/
 Alternate-site: ftp sunsite.unc.edu/pub/linux/system/news/readers/
                 http://www.home.zonnet.nl/panteltje/newsflex/
 Platforms:	LINUX, UNIX
@@ -76,5 +76,6 @@ you compile.
 
 # Archivist Notes
 
+* This project was originally found at http://www.panteltje.demon.nl/newsflex/ ([archive](https://web.archive.org/web/20010812013234/http://www.panteltje.demon.nl/newsflex/)).
 * Created bin directory to separate the binary file, NewsFleX-1.1.5.static, from the source code. NewsFleX-1.1.5.static is 32-bit and requires the ability to run 32-bit programs.
 * Fixed formatting
