@@ -52,10 +52,13 @@ Configuration:
 maybe edit the top of the Imakefile for directories, or accept the defaults
 
 To make it:
+
 `xmkmf`
+
 `make`
 
 To install:
+
 `make install`
 
 
@@ -64,14 +67,13 @@ You need to copy newsflexuser.tgz to your home directory and do
 files.
 
 start the program by typing:
+
 `NewsFleX`
 
 Please read the other files.
 
 If you compile on libc, remove the -lcrypt in the Imakefile before
 you compile.
-
-
 
 
 # Archivist Notes
